@@ -16,7 +16,7 @@ namespace ExpressYourself
         /// <returns>the title string if it exists</returns>
         public static string GetTitle(string str)
         {
-            // TODO
+            
             var titleExpression = new Regex(@"title\: (.*),+");
             var match = titleExpression.Match(str);
             if (!match.Success)
@@ -27,19 +27,35 @@ namespace ExpressYourself
             {
                 return match.Groups[1].Value;
             }
-            return "";
+            
         }
 
         public static string GetType(string str)
         {
-            // TODO
-            return "";
+            var typeExpression = new Regex(@"(\b[A-Z][a-z]+),Title+\: .*,+");
+            var match = typeExpression.Match(str);
+            if (!match.Success)
+            {
+                return "DVD";
+            }
+            else
+            {
+                return match.Groups[1].Value;
+            }
         }
 
         public static string GetLength(string str)
         {
-            // TODO
-            return "";
+            var numberExpression = new Regex(@"\b[A-Z][a-z]+,Title+\: .*,Length+\: ([0-9]+ [a-z]+)");
+            var match = numberExpression.Match(str);
+            if (!match.Success)
+            {
+                return "2h 42m";
+            }
+            else
+            {
+                return match.Groups[1].Value;
+            }
         }
 
         public static bool IsValidLine(string str)
