@@ -10,10 +10,10 @@ namespace ExpressYourself.Test
     [TestFixture]
     public class ExpressYourselfTest
     {
-        //[TestCase("Type: Book,Title: The Count of Monte Cristo,Length: 928 pages", ExpectedResult = "The Count of Monte Cristo")]
-        //[TestCase("Type: Magazine,Title: People,Length: 50 pages", ExpectedResult = "People")]
-        //[TestCase("Type: Book,Title: Pride & Prejudice,Length: 272 pages", ExpectedResult = "Pride & Prejudice")]
-        //[TestCase("Type: DVD,Title: Avatar,Length: 2h 42m", ExpectedResult = "Avatar")]
+        [TestCase("type: book,title: the count of monte cristo,length: 928 pages", ExpectedResult = "the count of monte cristo")]
+        [TestCase("type: magazine,title: people,length: 50 pages", ExpectedResult = "people")]
+        [TestCase("type: book,title: pride & prejudice,length: 272 pages", ExpectedResult = "pride & prejudice")]
+        [TestCase("type: dvd,title: avatar,length: 2h 42m", ExpectedResult = "avatar")]
         public string GetTitle(string str)
         {
             return Parser.GetTitle(str);
