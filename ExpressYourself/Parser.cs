@@ -32,11 +32,11 @@ namespace ExpressYourself
 
         public static string GetType(string str)
         {
-            var typeExpression = new Regex(@"(\b[A-Z][a-z]+),Title+\: .*,+");
+            var typeExpression = new Regex(@"(\b[A-Z]*[a-z]*),Title+\: .*,Length+\: [0-9]*[a-z]* [0-9]*[a-z]*");
             var match = typeExpression.Match(str);
             if (!match.Success)
             {
-                return "DVD";
+                return "LOL";
             }
             else
             {
@@ -46,11 +46,11 @@ namespace ExpressYourself
 
         public static string GetLength(string str)
         {
-            var numberExpression = new Regex(@"\b[A-Z][a-z]+,Title+\: .*,Length+\: ([0-9]+ [a-z]+)");
+            var numberExpression = new Regex(@"\b[A-Z]*[a-z]*,Title+\: .*,Length+\: ([0-9]*[a-z]* [0-9]*[a-z]*)");
             var match = numberExpression.Match(str);
             if (!match.Success)
             {
-                return "2h 42m";
+                return "LOL";
             }
             else
             {
