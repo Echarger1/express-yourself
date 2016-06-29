@@ -60,8 +60,19 @@ namespace ExpressYourself
 
         public static bool IsValidLine(string str)
         {
-            // TODO
-            return false;
+            var lineValue = new Regex(@"\b[A-Z]*[a-z]*,Title+\: .*,Length+\: [0-9]*[a-z]* [0-9]*[a-z]*");
+            var match = lineValue.Match(str);
+            if (!match.Success)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+           
+
         }
     }
 }
